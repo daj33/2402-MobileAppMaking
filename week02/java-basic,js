@@ -1,0 +1,45 @@
+//실행 - 디버깅 시작 -  node.js(F5)
+
+//1. 변수와 연산자
+//변수의 자료형을 구분하지 않는다 -> 오류 발생 감소
+//...(JS) 일단 화면에 띄워야 한다! `ㅅ'
+//세미콜론(;)이 없어도 동작한다, var가 없어도 동작한다 WOW~!!!
+
+//number: double로 가정.
+var a = 12;
+var b = 34;
+var c, d;
+c = a + b;
+d = a * b;
+console.log(a + b); //덧셈 계산: 12 + 34 = 46
+console.log(c); //46
+
+//string: 파이썬과 유사
+var str1 = "abc";
+var str2 = "123";
+console.log(str1 + " " + str2); //문자열 연결
+
+//number + string = string -> 텍스트 중심
+
+console.log(a + str1); // a를 string처럼 다룬다
+
+//연산자...Java와 똑같음
+
+var length = 16;
+var text = "ewha";
+
+var a = length + text;
+console.log(a); // 5Girls
+
+//주의!
+a = 2 + 3 + "Girls";
+console.log(a); // 5Girls
+
+a = "Girls" + 2 + 3;
+console.log(a); // Girls23
+
+a = "Girls" + (2 + 3);
+console.log(a); //Girls5
+
+var a = "1886";
+a = Number(a); //string -> number
