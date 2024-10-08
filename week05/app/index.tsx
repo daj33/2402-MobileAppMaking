@@ -2,6 +2,7 @@
 import { View, ImageBackground } from "react-native";
 import { Audio } from "expo-av";
 import { useState } from "react";
+
 async function play00() {
   //async function: 정상적인 싱크(작업 수행시기)를 벗어난 함수. 내부에 await이 있을 경우, 필수적으로 사용해야 한다.
   //await 코드에서 loading이 길어지는 경우, main의 다음 함수를 동작하기까지 시간이 오래 걸린다.
@@ -42,27 +43,30 @@ async function play12() {
   s.sound.playAsync();
 }
 
-const [key1, setKey1] = useState(0);
-const [key2, setKey2] = useState(0);
-const [key4, setKey4] = useState(0);
-const [key5, setKey5] = useState(0);
-const [key7, setKey7] = useState(0);
-const [key9, setKey9] = useState(0);
-const [key11, setKey11] = useState(0);
-const [key12, setKey12] = useState(0);
-
-const handleTouchEnd2 = function () {
-  setKey2(0);
-};
-const handleTouchEnd4 = () => {
-  setKey4(0);
-};
 const key_st = {
   flex: 1,
   margin: 5,
-  backgroundColor: "rgb(100, 100, 100, 0.2)", //투명도 설정
+  backgroundColor: "rgba(100, 100, 100, 0.2)", //rgba 투명도 설정
 };
+
 export default function HomeScreen() {
+  //ERROR: hook은 export ... 함수 내에서 선언해야한다!
+  const [key1, setKey1] = useState(0);
+  const [key2, setKey2] = useState(0);
+  const [key4, setKey4] = useState(0);
+  const [key5, setKey5] = useState(0);
+  const [key7, setKey7] = useState(0);
+  const [key9, setKey9] = useState(0);
+  const [key11, setKey11] = useState(0);
+  const [key12, setKey12] = useState(0);
+
+  // const handleTouchEnd2 = function () {
+  //   setKey2(0);
+  // };
+  // const handleTouchEnd4 = () => {
+  //   setKey4(0);
+  // };
+
   return (
     //touch와 drag를 구분하기 위해, View에서 손을 땔 때, 동작한다. 터치하는 순간 동작시키기 위해, Button이 아닌 View와 OnTouchStart로 구현한다.
     <View style={{ flex: 1 }}>
@@ -86,7 +90,7 @@ export default function HomeScreen() {
             setKey1(0);
             //function(){ }과 같은 익명함수를 사용하지 않고, setKey(1)을 그대로 작성할 경우 오류가 발생한다.
             //이벤트 핸들러에는 (즉시 실행된) 함수 호출 결과를 직접적으로 할당하는 것이 아니라, 함수 자체를 반환해야되기 때문이다.
-            //별도의 함수를 정의하여 할당할 수도 있다. 예) line: 55 ~
+            //별도의 함수를 정의하여 할당할 수도 있다. 예) line: 62 ~
           }}
         />
         <View
@@ -95,7 +99,11 @@ export default function HomeScreen() {
             play02();
             setKey2(1);
           }}
-          onTouchEnd={handleTouchEnd2}
+          onTouchEnd={
+            function () {
+              setKey2(0);
+            } //handleTouchEnd2
+          }
         />
         <View
           style={[key_st, { opacity: key4 }]}
@@ -103,7 +111,11 @@ export default function HomeScreen() {
             play04();
             setKey4(1);
           }}
-          onTouchEnd={handleTouchEnd4}
+          onTouchEnd={
+            function () {
+              setKey4(0);
+            } //handleTouchEnd4
+          }
         />
         <View
           style={[key_st, { opacity: key5 }]}
