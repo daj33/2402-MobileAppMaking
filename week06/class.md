@@ -14,6 +14,8 @@ A.push(36);
 A.pop();
 Looping Array //TODO: 실습해보기 _number, string을 함께 사용할 수 있음_
 ![alt text](image07.png)
+
+
 list: 서로 다른 타입의 데이터도 들어갈 수 있다. 길이가 가변적이다.
 
 ---
