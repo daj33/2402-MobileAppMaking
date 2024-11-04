@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+### JS OBJECT
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+var person = { }
+person.fname = "Daj33"
+person.lname = "Kim";=
+var person = {fname: "Daj33", lname: "Kim"}
+:star: property 값은 identifier이다. (python의 key와 대응)
+:star2: 리액트 style은 object를 사용한다.
+![alt text](image-3.png)
 
-## Get started
+---
 
-1. Install dependencies
+### Python Dictionary
 
-   ```bash
-   npm install
-   ```
+var person = {"fname": "Daj33"}
+:star: key 값은 string이다
 
-2. Start the app
+---
 
-   ```bash
-    npx expo start
-   ```
+### Are they Exactly same? NO!
 
-In the output, you'll find options to open the app in a
+1.  ![alt text](image.png)
+    var key = "abc";
+    var a = { key: 123 };
+    console.log(a["key"]); //python: print(a["abc"]);
+    a = {};
+    a[key] = 123;
+    console.log(a["abc"]); //python: print(a["abc"]);
+    :star: 함수의 이름은 필요하지 않다
+2.  Object can have Function - OOP 적용
+    person.full_name = function (){
+    return this.fname + " " + this.lname;
+    }
+    ![alt text](image-2.png)
+    :star: 함수의 이름은 필요하지 않다
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+##### Array vs Object
 
-## Get a fresh project
+array(list): [ value ] - index 자동 부여, index룰 통한 접근
+object: { property: value } - property를 통한 접근
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+### Array of Objects
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+![alt text](image-1.png)
+:star: object의 형식은 다를 수 있다
